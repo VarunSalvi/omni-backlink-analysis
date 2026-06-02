@@ -1,0 +1,31 @@
+label: Overlap Matrix
+description: >
+  For each competitor, the number of their referring domains that also
+  link to Omni and the percentage overlap. Answers: which competitors
+  share the most/least audience with Omni?
+schema: main
+table_name: fct_overlap_matrix
+
+dimensions:
+  competitor:
+    sql: '"competitor"'
+    label: Competitor
+    description: Competitor company name
+    primary_key: true
+  competitor_total_domains:
+    sql: '"competitor_total_domains"'
+    label: Competitor Total Domains
+    description: Total distinct referring domains for this competitor
+  shared_with_omni:
+    sql: '"shared_with_omni"'
+    label: Shared with Omni
+    description: Referring domains this competitor has in common with Omni
+  overlap_pct:
+    sql: '"overlap_pct"'
+    label: Overlap %
+    description: shared_with_omni as a percentage of competitor_total_domains
+
+measures:
+  count:
+    aggregate_type: count
+    label: Number of Competitors

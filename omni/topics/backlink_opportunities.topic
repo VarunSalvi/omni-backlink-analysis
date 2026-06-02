@@ -1,0 +1,9 @@
+base_view: fct_backlink_opportunities
+label: Backlink Opportunities
+group_label: Backlink Analysis
+ai_context: |
+  This topic is the primary growth marketing action list. It contains every
+  domain that links to at least one Omni competitor but has never linked to
+  Omni. Domains are tiered by opportunity_tier: High priority domains link
+  to 5+ competitors and represent the most pre-qualified outreach targets.
+  Filter to High priority first, then work down to Medium.

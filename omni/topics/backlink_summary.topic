@@ -1,0 +1,8 @@
+base_view: fct_backlink_summary
+label: Backlink Summary
+group_label: Backlink Analysis
+ai_context: |
+  This topic shows how many domains link to each BI tool company (Omni,
+  Tableau, Looker, Metabase, Mode, Hex, Sigma, Lightdash) and the total
+  volume of those links. Use it to compare the backlink footprint of Omni
+  against competitors. total_referring_domains is the key SEO health metric.

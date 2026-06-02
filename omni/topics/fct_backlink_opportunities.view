@@ -1,0 +1,45 @@
+label: Backlink Opportunities
+description: >
+  Domains that link to at least one competitor but NOT Omni, ranked by
+  competitor coverage. This is the prioritized outreach list for Omni's
+  Growth Marketing team.
+schema: main
+table_name: fct_backlink_opportunities
+
+dimensions:
+  referring_domain:
+    sql: '"referring_domain"'
+    label: Referring Domain
+    description: Domain linking to competitors but not Omni
+    primary_key: true
+  competitor_count:
+    sql: '"competitor_count"'
+    label: Competitor Count
+    description: Number of distinct competitors this domain links to
+  total_competitor_links:
+    sql: '"total_competitor_links"'
+    label: Total Competitor Links
+    description: Total link volume across all competitors from this domain
+  linked_competitors:
+    sql: '"linked_competitors"'
+    label: Linked Competitors
+    description: Comma-separated list of competitors this domain links to
+  opportunity_tier:
+    sql: '"opportunity_tier"'
+    label: Opportunity Tier
+    description: >
+      Outreach priority tier.
+      High priority = links to 5+ competitors.
+      Medium priority = links to 3-4 competitors.
+      Low priority = links to 1-2 competitors.
+
+measures:
+  count:
+    aggregate_type: count
+    label: Total Opportunity Domains
+    description: Total number of domains that could link to Omni
+  high_priority_count:
+    aggregate_type: count
+    sql: 'CASE WHEN "opportunity_tier" = ''High priority'' THEN 1 END'
+    label: High Priority Domains
+    description: Domains linking to 5+ competitors (highest outreach value)

@@ -1,0 +1,34 @@
+label: Backlink Summary
+description: >
+  Referring domain counts and backlink volume per company.
+  One row per (company, target_domain). Answers: how large is each
+  competitor's backlink footprint?
+schema: main
+table_name: fct_backlink_summary
+
+dimensions:
+  company:
+    sql: '"company"'
+    label: Company
+    description: Short name for the BI tool (omni, tableau, looker, etc.)
+  target_domain:
+    sql: '"target_domain"'
+    label: Target Domain
+    description: The domain being linked to (e.g. omniapp.co)
+
+measures:
+  total_referring_domains:
+    aggregate_type: sum
+    sql: '"total_referring_domains"'
+    label: Total Referring Domains
+    description: Count of distinct domains linking to this company
+  total_backlinks:
+    aggregate_type: sum
+    sql: '"total_backlinks"'
+    label: Total Backlinks
+    description: Raw hyperlink count pointing to this company
+  avg_links_per_domain:
+    aggregate_type: average
+    sql: '"avg_links_per_domain"'
+    label: Avg Links per Domain
+    description: Average link depth per referring domain

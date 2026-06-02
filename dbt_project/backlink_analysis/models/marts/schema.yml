@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: fct_backlink_summary
+    description: >
+      Rollup of referring domain counts and raw backlink volume per company.
+      One row per (company, target_domain). Use this to compare overall
+      backlink footprint across Omni and competitors.
+    columns:
+      - name: company
+        description: Short name for the BI tool (e.g. omni, tableau, looker)
+        tests:
+          - not_null
+      - name: target_domain
+        description: The domain being linked to (e.g. omniapp.co)
+        tests:
+          - not_null
+      - name: total_referring_domains
+        description: Count of distinct domains that link to this company
+        tests:
+          - not_null
+      - name: total_backlinks
+        description: Total number of hyperlinks pointing to this company
+      - name: avg_links_per_domain
+        description: Average number of links per referring domain
+
+  - name: fct_overlap_matrix
+    description: >
+      For each competitor, the number of their referring domains that also
+      link to Omni (shared_with_omni) and the percentage overlap.
+      One row per competitor. Used to identify where Omni already has
+      mindshare vs. where new audiences exist.
+    columns:
+      - name: competitor
+        description: Competitor company name
+        tests:
+          - not_null
+          - unique
+      - name: competitor_total_domains
+        description: Total distinct referring domains for this competitor
+      - name: shared_with_omni
+        description: How many of this competitor's referring domains also link to Omni
+      - name: overlap_pct
+        description: shared_with_omni as a percentage of competitor_total_domains
+
+  - name: fct_backlink_opportunities
+    description: >
+      Domains that link to at least one competitor but NOT to Omni —
+      ranked by the number of competitors they link to. This is the
+      prioritized outreach list for Omni's Growth Marketing team.
+    columns:
+      - name: referring_domain
+        description: Domain that links to competitors but not Omni
+        tests:
+          - not_null
+          - unique
+      - name: competitor_count
+        description: Number of distinct competitors this domain links to
+        tests:
+          - not_null
+      - name: total_competitor_links
+        description: Total link volume across all competitors from this domain
+      - name: linked_competitors
+        description: Comma-separated list of competitors this domain links to
+      - name: opportunity_tier
+        description: >
+          Outreach priority based on competitor_count.
+          High priority = 5+ competitors, Medium = 3-4, Low = 1-2
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['High priority', 'Medium priority', 'Low priority']
