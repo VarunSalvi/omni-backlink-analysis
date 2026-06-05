@@ -4,5 +4,5 @@ group_label: Backlink Analysis
 ai_context: |
   This topic shows how much of each competitor's referring domain base
   overlaps with Omni's. A low overlap_pct means Omni has not yet captured
-  that competitor's audience — those competitors are the most valuable
+  that competitor's audience - those competitors are the most valuable
   sources of new referring domains to pursue.

@@ -45,7 +45,7 @@ models:
 
   - name: fct_backlink_opportunities
     description: >
-      Domains that link to at least one competitor but NOT to Omni —
+      Domains that link to at least one competitor but NOT to Omni -
       ranked by the number of competitors they link to. This is the
       prioritized outreach list for Omni's Growth Marketing team.
     columns:

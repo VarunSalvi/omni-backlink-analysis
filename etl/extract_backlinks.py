@@ -57,7 +57,7 @@ def main():
                 continue
 
     target_ids = set(id_to_target.keys())
-    print(f"  Target IDs found: {len(target_ids)} — {target_ids}")
+    print(f"  Target IDs found: {len(target_ids)} - {target_ids}")
     print(f"  Total domains in map: {len(id_to_domain)}")
 
     # Step 2: Stream edges, filter only edges pointing TO our targets
