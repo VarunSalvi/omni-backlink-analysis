@@ -5,7 +5,7 @@ import requests
 import pandas as pd
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 TOKEN = os.getenv("MOTHERDUCK_TOKEN")
 
 RELEASE = "cc-main-2026-mar-apr-may"
@@ -100,7 +100,7 @@ def main():
     con.execute("CREATE OR REPLACE TABLE staging.referring_domains AS SELECT * FROM result")
 
     count = con.execute("SELECT COUNT(*) FROM staging.referring_domains").fetchone()[0]
-    print(f"\nLoaded {count} referring domain rows into MotherDuck ✅")
+    print(f"\nLoaded {count} referring domain rows into MotherDuck")
 
     print("\nReferring domains per company:")
     print(con.execute("""
