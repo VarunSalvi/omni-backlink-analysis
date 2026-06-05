@@ -4,8 +4,10 @@ models:
   - name: fct_backlink_summary
     description: >
       Rollup of referring domain counts and raw backlink volume per company.
-      One row per (company, target_domain). Use this to compare overall
-      backlink footprint across Omni and competitors.
+      One row per (company, target_domain). Backlink strength is approximated
+      by total_referring_domains (breadth), total_backlinks (raw volume), and
+      avg_links_per_domain (depth per referrer). True domain authority scores
+      require a paid API (Ahrefs/Moz) which is not available in this dataset.
     columns:
       - name: company
         description: Short name for the BI tool (e.g. omni, tableau, looker)
@@ -70,3 +72,9 @@ models:
           - not_null
           - accepted_values:
               values: ['High priority', 'Medium priority', 'Low priority']
+      - name: link_volume_percentile
+        description: >
+          Percentile rank (1-100) of this domain by total_competitor_links.
+          Used as a proxy for domain authority within the BI/analytics space.
+          A domain in the 99th percentile links to competitors more than 99%
+          of all other opportunity domains - a signal of high editorial activity.

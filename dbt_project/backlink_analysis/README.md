@@ -1,15 +1,20 @@
-Welcome to your new dbt project!
+# backlink_analysis dbt project
 
-### Using the starter project
+Transforms raw backlink data loaded by the ETL into three analytical mart tables.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Models
 
+- `staging/stg_referring_domains` - cleaned view over the raw ETL output in MotherDuck
+- `marts/fct_backlink_summary` - referring domain counts and backlink volume per company
+- `marts/fct_overlap_matrix` - backlink overlap between each competitor and Omni
+- `marts/fct_backlink_opportunities` - domains linking to competitors but not Omni, tiered by priority
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+## Running
+
+```
+cd dbt_project/backlink_analysis
+dbt run
+dbt test
+```
+
+Requires a `~/.dbt/profiles.yml` entry named `backlink_analysis` pointing to your MotherDuck instance.

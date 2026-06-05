@@ -31,12 +31,16 @@ competitors Metabase (1,713), Looker (1,587), and Mode (1,038) show what is achi
 at Omni's stage. Lightdash (187) and Hex (761) are closest peers by backlink profile.
 
 Analysis of 4.3 billion web graph edges identified 47,114 domains linking to at least
-one competitor. The top opportunities - domains like holistics.io, montecarlodata.com,
-substack.com, and github.com - link to all 7 competitors but not Omni. These represent
-high-value targets where editorial interest in the analytics space already exists.
+one competitor but not Omni. Of these, 107 are High priority (linking to 5+ competitors),
+419 are Medium priority (3-4 competitors), and 43,558 are Low priority (1-2 competitors).
 
-Omni's growth marketing team should prioritize outreach to the ~12 domains linking to
-all 7 competitors (High priority tier). A secondary list of domains linking to 3-5
-competitors (Medium priority) provides a deeper pipeline. The data suggests Omni is
-severely underlinked relative to peers and has significant untapped backlink opportunity
-in the analytics/BI content ecosystem.
+The top High priority targets - querio.ai, zenn.dev, beehiiv.com, holistics.io,
+getdbt.com, ycombinator.com, and secoda.co - each link to all 7 competitors and represent
+the strongest signal of editorial interest in the analytics/BI space. Backlink strength
+is approximated by total_competitor_links percentile rank, a proxy for domain activity
+within this category (true authority scores require a paid API such as Ahrefs or Moz).
+
+Omni's growth marketing team should prioritize outreach to the 107 High priority domains
+first. A secondary pipeline of 419 Medium priority domains provides further reach. The
+data suggests Omni is severely underlinked relative to peers and has significant untapped
+backlink opportunity in the analytics/BI content ecosystem.

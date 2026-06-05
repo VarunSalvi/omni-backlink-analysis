@@ -22,7 +22,8 @@ SELECT
         WHEN c.competitor_count >= 5 THEN 'High priority'
         WHEN c.competitor_count >= 3 THEN 'Medium priority'
         ELSE 'Low priority'
-    END AS opportunity_tier
+    END AS opportunity_tier,
+    NTILE(100) OVER (ORDER BY c.total_competitor_links) AS link_volume_percentile
 FROM competitor_links c
 LEFT JOIN omni_domains o ON c.referring_domain = o.referring_domain
 WHERE o.referring_domain IS NULL
